@@ -1,0 +1,131 @@
+:root {
+  --green: #54e6af;
+  --dark: #121725;
+  --light: #fff;
+  --grey-800: #2c344b;
+  --grey-500: #5a668a;
+  --grey-200: #c2cbe5;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Chivo", sans-serif;
+  font-weight: lighter;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--light);
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--dark);
+}
+
+h1 {
+  font-size: 52px;
+  line-height: 62px;
+  text-transform: capitalize;
+  color: var(--green);
+}
+
+.header {
+  font-size: 52px;
+  line-height: 62px;
+}
+
+#intro {
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  margin-top: 261px;
+  background-color: var(--dark);
+  width: 730px;
+  height: 515px;
+  padding-top: 86px;
+  padding-right: 58px;
+  margin-left: 185px;
+}
+
+#intro p {
+  font-weight: lighter;
+  color: var(--grey-200);
+  width: 445px;
+  margin-top: 28px;
+}
+
+#intro form {
+  margin-top: 40px;
+  border-radius: 25px;
+  padding: 5px;
+  display: flex;
+  width: 445px;
+  height: 56px;
+  background-color: var(--grey-800);
+}
+
+#signup input[type="text"] {
+  border-radius: 50px 0 0 50px;
+  padding: 0 32px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--light);
+  background-color: var(--grey-800);
+  border: none;
+  flex-grow: 1;
+  height: 100%;
+  outline: none;
+}
+
+#signup input[type="text"]:focus {
+  color: var(--light);
+  background-color: var(--grey-800);
+}
+
+#submitBtn {
+  border-radius: 25px;
+  padding: 0 27px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  color: var(--dark);
+  background-color: var(--green);
+  outline: none;
+}
+
+#error {
+  display: none;
+  padding-left: 32px;
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 8px;
+  margin: 0;
+  color: #fb3e3e;
+}
+
+#host {
+  z-index: -1;
+  position: absolute;
+  right: 0;
+  top: 132px;
+}
+
+#shapes {
+  z-index: 5;
+  position: absolute;
+  right: 0;
+  bottom: 132px;
+}
+
+#logo {
+  top: 132px;
+  position: fixed;
+  left: 165px;
+}
+
+#icons {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
