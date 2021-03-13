@@ -1,15 +1,35 @@
-const submitButton = document.getElementById("submitBtn");
-const email = document.getElementById("email");
-const error = document.getElementById("error");
+const fetchData = async (url, token) => {
+  const results = await fetch(url, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  const data = await results.json();
+  return data;
+};
 
-submitButton.addEventListener("click", (ev) => {
-  ev.preventDefault();
-  const mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+let token = window.localStorage.getItem("token");
 
-  if (mailformat.test(email.value)) {
-    error.style.display = "none";
-    document.getElementById("signup").submit();
-  } else {
-    error.style.display = "block";
-  }
-});
+// If there's no token, login.
+
+// Capture the fields from the location hash if available.
+const hash = location.hash
+  .slice(1)
+  .split("&")
+  .reduce((acc, cur) => {
+    let [key, value] = cur.split("=");
+    if (key) acc[key] = value;
+    return acc;
+  }, {});
+window.location.hash = "";
+
+if (hash.access_token) {
+  window.localStorage.setItem("token", hash.access_token);
+  token = hash.access_token;
+}
+
+if (token)
+  fetchData(
+    "https://api.spotify.com/v1/browse/categories?limit=50",
+    token
+  ).then((data) => console.log("DATA", data));
+
+if (!token) window.location.replace("/login.html");
